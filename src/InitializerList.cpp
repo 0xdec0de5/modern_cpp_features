@@ -3,24 +3,27 @@
 
 using namespace std;
 
-int main()
+namespace ns_InitializerList
 {
-	initializer_list<int> ints = { 2, 4, 6, 8, 10, 12, 14 };
-
-	cout << ints.size() << endl;
-
-	auto it = rbegin(ints);
-	for(; it != rend(ints); it++)
+	int main()
 	{
-		cout << "i = " << *it << ", ";
+		initializer_list<int> ints = { 2, 4, 6, 8, 10, 12, 14 };
+
+		cout << ints.size() << endl;
+
+		auto it = rbegin(ints);
+		for (; it != rend(ints); it++)
+		{
+			cout << "i = " << *it << ", ";
+		}
+
+		vector<int> v(ints);
+
+		for (auto a : v)
+		{
+			cout << "v = " << a << ", ";
+		}
+
+		return 0;
 	}
-
-	vector<int> v(ints);
-
-	for(auto a : v)
-	{
-		cout << "v = " << a << ", ";
-	}
-
-	return 0;
 }
